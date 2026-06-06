@@ -37,28 +37,23 @@ I used SPWVD to transform EEG signals into TFR images. EEG data from 3 motor cor
 ## Methodology
 
 ```text
+
 Raw EEG
-    │
-    ▼
-Preprocessing
-    │
-    ▼
+   ↓
+Bandpass Filtering (8–30 Hz)
+   ↓
 Epoch Extraction (2–6 s)
-    │
-    ▼
-Channel Selection
- (C3, Cz, C4)
-    │
-    ▼
- SPWVD
-    │
-    ▼
-Time-Frequency Images
-    │
-    ▼
-   CNN
-    │
-    ▼
+   ↓
+Channel selection (C3, Cz, C4)
+   ↓
+SPWVD Transformation
+   ↓
+Resize → 256 × 256 Images
+   ↓
+RGB Tensor Construction
+   ↓
+  CNN
+   ↓
 4-Class Classification
 
 ```
