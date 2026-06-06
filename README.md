@@ -1,6 +1,8 @@
-# EEG Motor Imagery Classification using SPWVD and CNNs
+# EEG Motor Imagery Classification using SPWVD and CNN
 
-In this project, I've used Deep learning for 4-class motor imagery EEG classification using Smoothed Pseudo Wigner–Ville Distribution (SPWVD) time-frequency representations and Convolutional Neural Networks (CNNs) on the BCI Competition IV-2a dataset. 
+In this project, I've used Deep learning for 4-class motor imagery EEG classification using Smoothed Pseudo Wigner–Ville Distribution (SPWVD) time-frequency representations and Convolutional Neural Network (CNN) on the BCI Competition IV-2a dataset. 
+
+I used SPWVD to transform EEG signals into TFR images. EEG data from 3 motor cortex channels (C3,C4,Cz) with 1-D data were converted into TFR images (2-D data) having the size of 256 × 256 pixels. Unlike my previous project, CSP+LDA, this approach leverages time-frequency representations + CNNs to automatically learn discriminative patterns from EEG signals.
 
 ### Main Contributions:
 
@@ -15,9 +17,9 @@ In this project, I've used Deep learning for 4-class motor imagery EEG classific
 
 | **Aspect** | **Details** |
 |------------|-------------|
-| Dataset | BCI Competition IV-2a (Subject A01 & A02) |
+| Dataset | BCI Competition IV-2a (Subjects A01-A09) |
 | Classes | Left hand, Right hand, Foot, Tongue (4 classes) |
-| EEG Channels | 22 channels |
+| EEG Channels | 3 (C3, Cz, C4) |
 | Time window | 2-6 seconds post-cue |
 | Frequency band | 8-30 Hz (bandpass filtered) |
 
@@ -32,7 +34,7 @@ In this project, I've used Deep learning for 4-class motor imagery EEG classific
 
 ---
 
-## ⚙️ Methodology
+## Methodology
 
 ```text
 Raw EEG
@@ -45,24 +47,23 @@ Epoch Extraction (2–6 s)
     │
     ▼
 Channel Selection
-(C3, Cz, C4)
+ (C3, Cz, C4)
     │
     ▼
-SPWVD
+ SPWVD
     │
     ▼
 Time-Frequency Images
     │
     ▼
-CNN / ResNet18
+   CNN
     │
     ▼
 4-Class Classification
+
 ```
 
----
-
-## 🖼️ Time-Frequency Representation
+## Time-Frequency Representation (TFR)
 
 The EEG signals are transformed into **Time-Frequency Representations (TFRs)** using the **Smoothed Pseudo Wigner–Ville Distribution (SPWVD)**.
 
@@ -83,80 +84,20 @@ The EEG signals are transformed into **Time-Frequency Representations (TFRs)** u
 
 ---
 
-## 🧪 Experiments
-
-| Experiment | Input | Model |
-|------------|---------|---------|
-| Exp-1 | SPWVD Images | Custom CNN |
-| Exp-2 | SPWVD Images | ResNet18 |
-| Exp-3 | RGB-SPWVD (C3,Cz,C4) | ResNet18 |
-| Exp-4 | CSP Features | LDA |
-| Exp-5 | CSP Features | SVM |
-
----
-
-## 📈 Results
+# Results
 
 ### Classical Machine Learning
 
 | Method | Accuracy |
 |----------|----------|
-| CSP + LDA | TBD |
-| CSP + SVM | TBD |
-
-### Deep Learning
-
-| Method | Accuracy |
-|----------|----------|
-| SPWVD + CNN | TBD |
-| SPWVD + ResNet18 | TBD |
-| RGB-SPWVD + ResNet18 | TBD |
+| CSP + LDA | ? |
+| CSP + SVM | ? |
+| SPWVD + CNN | ? |
 
 ---
 
-## 📂 Repository Structure
 
-```text
-EEG-Motor-Imagery-SPWVD-CNN/
-
-├── data/
-├── notebooks/
-├── src/
-├── models/
-├── figures/
-├── results/
-├── README.md
-├── requirements.txt
-└── LICENSE
-```
-
----
-
-## 🚀 Future Work
-
-- Subject-independent decoding
-- EEGNet implementation
-- ATCNet implementation
-- Transfer learning
-- Explainable AI (Grad-CAM)
-- Vision Transformers (ViT)
-- Cross-subject evaluation
-
----
-
-## 🛠️ Installation
-
-```bash
-git clone https://github.com/yourusername/EEG-Motor-Imagery-SPWVD-CNN.git
-
-cd EEG-Motor-Imagery-SPWVD-CNN
-
-pip install -r requirements.txt
-```
-
----
-
-## 👨‍💻 Author
+## Author
 
 **Hesam Moradkhani**
 
@@ -166,9 +107,7 @@ Research Interests:
 - EEG Signal Processing
 - Machine Learning
 - Deep Learning
-- Neurotechnology
-
----
+- NeuroAI
 
 ## ⭐ If you find this project useful
 
